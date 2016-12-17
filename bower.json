@@ -1,0 +1,27 @@
+{
+  "name": "csContainer",
+  "authors": [
+    "Clint Small Cain <github@breakbottle.com>"
+  ],
+  "description": "Dependency Injection Container for PHP",
+  "main": "",
+  "keywords": [
+    "Dependency",
+    "Injection",
+    "Containers",
+    "PHP"
+  ],
+  "license": "MIT",
+  "homepage": "http://github.com/breakbottle",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "includes/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "csSingleton": "https://github.com/breakbottle/csSingleton.git"
+  }
+}
