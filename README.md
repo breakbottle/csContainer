@@ -9,6 +9,10 @@ Run bower install to get dependencies.
 
 Include this class in your autoload folder or include in your project with dependencies
 
+### Dependencies
+
+csSingleton
+
 ### Example
 
 Include this class in your autoload folder or include in your project
