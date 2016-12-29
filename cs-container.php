@@ -88,7 +88,7 @@ class csContainer extends csSingleton{
             $namespace = 'root';
         }
 
-        if(count($this->dependants[$namespace])){
+        if(isset($this->dependants[$namespace]) && count($this->dependants[$namespace])){
             if(array_key_exists($interfaceName,$this->dependants[$namespace])){
                 $returnType->fullyQualifiedClassName .= $this->dependants[$namespace][$interfaceName]->className;
                 $returnType->classArgs = $this->dependants[$namespace][$interfaceName]->classConstructorParams;
@@ -109,7 +109,7 @@ class csContainer extends csSingleton{
                 break;
             default:
 
-                $defined = $this->definedClasses[$className];
+                $defined = (isset($this->definedClasses[$className])?$this->definedClasses[$className]:null);
                 if($defined == null && $this->levelsDeepToSearchDefinedClasses > 1){
                     $defined = $this->FindDefinedClass($className);
 
@@ -120,7 +120,7 @@ class csContainer extends csSingleton{
                     $this->InitializeLogReport();//reset resolve report
                     //look up by interface
                     $interface = "i".$className;
-                    $isObject = $this->dependants[$this->defaultNamespace][$interface];
+                    $isObject = (isset($this->dependants[$this->defaultNamespace][$interface])?$this->dependants[$this->defaultNamespace][$interface]:null);
                     if($isObject != null){
 
                         $defined = $this->definedClasses[$isObject->className];
@@ -224,7 +224,7 @@ class csContainer extends csSingleton{
         return $argumentsFromResolve;
     }
     private function SetProperty($className){
-        if(count($this->dependants['root'])) {
+        if(isset($this->dependants['root'])) {
             foreach ($this->dependants['root'] as $fullInterfaceName => $classObject) {
                 if ($classObject->className == $className) {
                     return substr($this->ParseNamespace($classObject->interfaceName), 1);
