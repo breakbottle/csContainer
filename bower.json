@@ -21,6 +21,9 @@
     "test",
     "tests"
   ],
+  "devDependencies": {
+    "csSingleton": "https://github.com/breakbottle/csSingleton.gi#development"
+  },
   "dependencies": {
     "csSingleton": "https://github.com/breakbottle/csSingleton.git"
   }
